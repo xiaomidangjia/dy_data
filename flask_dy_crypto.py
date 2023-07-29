@@ -81,7 +81,7 @@ def dy_crypto_chen():
                 price_res.append({'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_open':crypto_open,'crypto_close':crypto_close})
 
 
-            res_dict = {'value':api_value,'pingjia':str(price_res)}
+            res_dict = {'value':api_value,'price_res':str(price_res)}
             ans_str = json.dumps(res_dict)
 
     return ans_str
