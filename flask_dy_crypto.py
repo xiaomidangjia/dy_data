@@ -22,7 +22,7 @@ def dy_crypto_chen():
 
     # 读取一个表，判断api_key 是不是在有效期内，有效的下单金额是多少
     p = []
-    with open("/root/dy_crypto_chen/base_information.csv", 'r', encoding="UTF-8") as fr:
+    with open("/root/dy_data/base_information.csv", 'r', encoding="UTF-8") as fr:
         reader = csv.reader(fr)
         for index, line in enumerate(reader):
             if index == 0:
@@ -78,10 +78,10 @@ def dy_crypto_chen():
                 crypto_direction = res_data['crypto_direction'][i]
                 crypto_open = res_data['crypto_open'][i]
                 crypto_close = res_data['crypto_close'][i]
-                price_res.append({'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_open':crypto_open,'crypto_close':crypto_close},index=[0])
+                price_res.append({'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_open':crypto_open,'crypto_close':crypto_close})
 
 
-            res_dict = {'value':api_value,'pingjia':price_res}
+            res_dict = {'value':api_value,'pingjia':str(price_res)}
             ans_str = json.dumps(res_dict)
 
     return ans_str
