@@ -71,15 +71,18 @@ def dy_crypto_chen():
             res_data['crypto_direction'] = res_data.iloc[:,1]
             res_data['crypto_type'] = res_data.iloc[:,2]
             res_data['crypto_open'] = res_data.iloc[:,3]
-            res_data['crypto_close'] = res_data.iloc[:,4]
+            res_data['crypto_win'] = res_data.iloc[:,4]
+            res_data['crypto_loss'] = res_data.iloc[:,5]
             res_data = res_data.reset_index(drop=True)
             price_res = []
             for i in range(len(res_data)):
                 crypto_name = res_data['crypto_name'][i]
                 crypto_direction = res_data['crypto_direction'][i]
+                crypto_type = res_data['crypto_type'][i]
                 crypto_open = res_data['crypto_open'][i]
-                crypto_close = res_data['crypto_close'][i]
-                price_res.append({'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_type':crypto_type,'crypto_open':crypto_open,'crypto_close':crypto_close})
+                crypto_win = res_data['crypto_win'][i]
+                crypto_loss = res_data['crypto_loss'][i]
+                price_res.append({'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_type':crypto_type,'crypto_open':crypto_open,'crypto_win':crypto_win,'crypto_loss':crypto_loss})
 
 
             res_dict = {'value':api_value,'price_res':str(price_res)}
