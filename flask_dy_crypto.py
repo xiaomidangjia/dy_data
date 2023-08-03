@@ -22,7 +22,7 @@ def dy_crypto_chen():
 
     # 读取一个表，判断api_key 是不是在有效期内，有效的下单金额是多少
     p = []
-    with open("/root/dy_data/base_information.csv", 'r', encoding="UTF-8") as fr:
+    with open("/root/dy_data/base_information_chen.csv", 'r', encoding="UTF-8") as fr:
         reader = csv.reader(fr)
         for index, line in enumerate(reader):
             if index == 0:
