@@ -50,7 +50,7 @@ def dy_crypto_chen():
         price_res.append({'crypto_id':crypto_id,'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_type':crypto_type,'crypto_open':crypto_open,'crypto_win':crypto_win,'crypto_loss':crypto_loss})
 
 
-    res_dict = {'value':api_value,'price_res':str(price_res)}
+    res_dict = {'value':'correct','price_res':str(price_res)}
     ans_str = json.dumps(res_dict)
 
     return ans_str
