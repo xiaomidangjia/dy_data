@@ -30,16 +30,18 @@ def dy_crypto_chen():
                 continue
             p.append(line)
     res_data = pd.DataFrame(p)
-    res_data['crypto_id'] = res_data.iloc[:,0]
-    res_data['crypto_name'] = res_data.iloc[:,1]
-    res_data['crypto_direction'] = res_data.iloc[:,2]
-    res_data['crypto_type'] = res_data.iloc[:,3]
-    res_data['crypto_open'] = res_data.iloc[:,4]
-    res_data['crypto_win'] = res_data.iloc[:,5]
-    res_data['crypto_loss'] = res_data.iloc[:,6]
+    res_data['crypto_time'] = res_data.iloc[:,0]
+    res_data['crypto_id'] = res_data.iloc[:,1]
+    res_data['crypto_name'] = res_data.iloc[:,2]
+    res_data['crypto_direction'] = res_data.iloc[:,3]
+    res_data['crypto_type'] = res_data.iloc[:,4]
+    res_data['crypto_open'] = res_data.iloc[:,5]
+    res_data['crypto_win'] = res_data.iloc[:,6]
+    res_data['crypto_loss'] = res_data.iloc[:,7]
     res_data = res_data.reset_index(drop=True)
     price_res = []
     for i in range(len(res_data)):
+        crypto_time = res_data['crypto_time'][i]
         crypto_id = res_data['crypto_id'][i]
         crypto_name = res_data['crypto_name'][i]
         crypto_direction = res_data['crypto_direction'][i]
@@ -47,7 +49,7 @@ def dy_crypto_chen():
         crypto_open = res_data['crypto_open'][i]
         crypto_win = res_data['crypto_win'][i]
         crypto_loss = res_data['crypto_loss'][i]
-        price_res.append({'crypto_id':crypto_id,'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_type':crypto_type,'crypto_open':crypto_open,'crypto_win':crypto_win,'crypto_loss':crypto_loss})
+        price_res.append({'crypto_time':crypto_time,'crypto_id':crypto_id,'crypto_name':crypto_name,'crypto_direction':crypto_direction,'crypto_type':crypto_type,'crypto_open':crypto_open,'crypto_win':crypto_win,'crypto_loss':crypto_loss})
 
 
     res_dict = {'value':'correct','price_res':str(price_res)}
